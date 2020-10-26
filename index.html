@@ -122,14 +122,13 @@
   </head>
   <body>
     <div id="content">
+		
       <div id="card">
         <h3 id="entity"></h3>
         <div id="uen"></div>
         <div id="amount"></div>
         <div id="ref"></div>
         <div id="qr"></div>
-        <img id="logo" src="./paynow.png" alt="PayNow Logo" />
-        <div id="scan">SCAN TO PAY</div>
       </div>
       <div id="info">
         <p>Compatible with any PayNow enabled Singapore Banking App.</p>
@@ -172,11 +171,20 @@ const payNowString = generatePayNow({
   entity,
   refNumber: reference || undefined
 })
+console.log(payNowString);
 const qr = qrcode(0, 'Q')
 qr.addData(payNowString)
 qr.make()
 
 document.getElementById('qr').innerHTML = qr.createImgTag(6)
     </script>
+	<h1>How to pay on mobile?</h1>
+	<p>Please take a screenshot and import the QR via your Photo library</p>
+	<ul>
+		<li><a href="https://s.natalian.org/2020-10-23/digibank.jpeg">DBS Paynow via Digibank</a></li>
+		<li><a href="https://s.natalian.org/2020-10-26/dbs-paylah.jpeg">DBS Paylah!</a></li>
+		<li><a href="https://s.natalian.org/2020-10-26/ocbc-pay-anyone.jpeg">OCBC Pay Anyone</a></li>
+	</ul>
+	<p>Hopefully this will be easier in future with paynow:// protocol link support</p>
   </body>
 </html>
